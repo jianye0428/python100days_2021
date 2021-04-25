@@ -1,3 +1,14 @@
+- [1. 官方文档](#1-官方文档)
+- [2. 创建一个Jupyter notebook](#2-创建一个jupyter-notebook)
+- [3. Notebook使用](#3-notebook使用)
+- [4. 编辑模式](#4-编辑模式)
+- [5. 命令模式](#5-命令模式)
+- [6. Markdown语法](#6-markdown语法)
+- [7. Latex数学公式](#7-latex数学公式)
+- [8. Notebook小技巧](#8-notebook小技巧)
+- [9. 保存文件](#9-保存文件)
+- [10. 误删怎么恢复？](#10-误删怎么恢复)
+- [11. 大招](#11-大招)
 # 1. 官方文档
 link:https://jupyter.org/documentation.html
 # 2. 创建一个Jupyter notebook
