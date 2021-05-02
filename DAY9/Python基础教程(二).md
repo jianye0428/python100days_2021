@@ -42,8 +42,8 @@ a = 4
 try:
     print( l.index(a))
 except ValueError, ve:
-    print( "there is no %d in list" % a
-　　　　insert(i, value))　　---向列表i位置插入项vlaue，如果没有i，则添加到列表尾部
+    print( "there is no %d in list" % a)
+　　 insert(100, value))　　---向列表i位置插入项vlaue，如果没有i，则添加到列表尾部
 
 l = [1, 2, 2]
 
@@ -92,17 +92,13 @@ l5 = [10, 5, 20, 1, 30]
 l5.sort()
 print( l5) #[1, 5, 10, 20, 30]
 
-l6 = ["bcd", "abc", "cde", "bbb"]
-l6.sort(cmp = lambda s1, s2: cmp(s1[0],s2[1]))
-print( l6) #['abc', 'bbb', 'bcd', 'cde']
-
 l7 = ["bcd", "abc", "cde", "bbb", "faf"]
 l7.sort(key = lambda s: s[1])
 print (l7) #['faf', 'abc', 'bbb', 'bcd', 'cde']
 ```
 
 ## 6.2 元组
-tuple和list十分相似，但是tuple是**不可变**的，即不能修改tuple，元组通过<font=red>*圆括号中用逗号分割*</font>的项定义。
+tuple和list十分相似，但是tuple是**不可变**的，即不能修改tuple，元组通过*圆括号中用逗号分割*</font>的项定义。
 
 - 支持索引和切片操作
 - 可以使用 in查看一个元素是否在tuple中。
@@ -233,7 +229,8 @@ print (d5.get(5)) #None
 print (d5.get(5, "test") )#test
 ```
 
-- ```has_key(key)```
+- ```has_key(key)```(pyhton2.x)
+- ```__contain__(key)```(python3.x)
 
 判断字典中是否有键key
 
@@ -241,6 +238,8 @@ print (d5.get(5, "test") )#test
 d6 = {1:"one", 2:"two", 3:"three"}
 print( d6.has_key(1) ) #True
 print (d6.has_key(5))  #False
+print(d6.__contains__(1))#True
+print(d6.__contains__(5))#False
 ```
 
 - ```items()```
@@ -326,7 +325,7 @@ d.update(d2)
 print (d)  #{1: 'first', 2: 'two', 3: 'three', 4: 'forth'}
 ```
 
-- ```viewitems()```
+- ```viewitems()```**（deprecated）**
 返回一个view对象，（key, value）pair的列表，类似于视图。优点是，如果字典发生变化，view会同步发生变化。在 迭代过程中，字典不允许改变，否则会报异常
 ```
 d = {1:"one", 2:"two", 3:"three"}
@@ -337,8 +336,8 @@ for key, value in d.viewitems():
 #3 - three
 ```
 
-- ```viewkeys()```
-返回一个view对象，key的列表
+- ```viewkeys()```返回一个view对象，key的列表**（deprecated）**
+- ```keys()```
 ```
 d = {1:"one", 2:"two", 3:"three"}
 for key in d.viewkeys():
@@ -348,7 +347,8 @@ for key in d.viewkeys():
 #3
 ```
 
-- ```viewvalues()```
+- ```viewvalues()```**（deprecated）**
+- ```values()```
 
 返回一个view对象，value的列表
 
