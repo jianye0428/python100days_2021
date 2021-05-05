@@ -3,7 +3,7 @@
   - [13.2 os模块](#132-os模块)
 - [14. 类中的特别方法](#14-类中的特别方法)
 - [15. 列表推导式](#15-列表推导式)
-- [16. *和**args区别](#16-和args区别)
+- [16. *args和**args区别](#16-args和args区别)
 - [17. lambda函数](#17-lambda函数)
 - [18. exec/eval](#18-execeval)
 - [19. assert](#19-assert)
@@ -97,7 +97,7 @@ sys.stdin、sys.stdout、sys.stderr：
 
 简而言之，这三个属性就是操作系统的标准输入、输出和错误流，它们返回的都是一个“文件类型”对象，支持read()、write()和flush()等操作。
 
-```
+```py
 >>> import sys
 >>> s = sys.stdin.readline()        
 i don't like python
@@ -111,7 +111,7 @@ python3中sys.stdin与input的区别：
 
 input()方法和stdin()类似，不同的是input()括号内可以直接填写说明文字。
 
-```
+```py
 s = input('Please input something！')
 
 print('Please input something！',)  # 逗号表示不换行
@@ -120,7 +120,7 @@ s = sys.stdin.readline()[:-1]  # -1 抛弃输入流中的'\n' 换行符
 
 当我们print(obj)的时候，事实上是调用了sys.stdout.write(obj+'\n')，将内容打印到控制台（默认是显示器），然后追加一个换行符。以下两行等价：
 
-```
+```py
 sys.stdout.write('hello'+'\n') 
 print('hello')
 ```
@@ -223,7 +223,7 @@ print(list1)  #[1, 2, 3, 4, 5]
 print(list2)  #[8, 10]
 ```
 
-# 16. *和**args区别
+# 16. *args和**args区别
 当函数接收元组或字典形式的参数的时候，有一种特殊的方法，使用*和**前缀。
 
 该方法在函数需要获取可变数量的参数的时候特别有用。 　
