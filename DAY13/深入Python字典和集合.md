@@ -1,13 +1,13 @@
 - [字典和集合](#字典和集合)
 - [增删查找](#增删查找)
 # 字典和集合
-字典是一系列无序元素的组合，其长度大小可变，元素可以任意地删减和改变。不过要注意，这里的元素，是一对键（key）和值（value）
+字典是一系列**无序元素**的组合，<u>其长度大小可变，元素可以任意地删减和改变</u>。不过要注意，这里的元素，是一对键（key）和值（value）
 
-相比于列表和元组，字典的性能更优，特别是对于查找、添加和删除，字典都能在常数的时间复杂度内完成
+相比于列表和元组，字典的性能更优，特别是对于查找、添加和删除，字典都能在**常数的时间复杂度**内完成
 
 而集合和字典基本相同，唯一的区别，就是集合没有键和值的配对是一系列无序的、唯一的元素组合。
 
-```
+```py
 d1 = {'name': 'jason', 'age': 20, 'gender': 'male'}
 d2 = dict({'name': 'jason', 'age': 20, 'gender': 'male'})
 d3 = dict([('name', 'jason'), ('age', 20), ('gender', 'male')])
@@ -21,7 +21,7 @@ s1 == s2
 True
 ```
 集合并不支持索引操作，因为集合本质上是一个哈希表，和列表不一样
-```
+```py
 s = {1, 2, 3}
 s[0]
 Traceback (most recent call last):
@@ -31,7 +31,7 @@ TypeError: 'set' object does not support indexing
 
 想要判断一个元素在不在字典或集合内，我们可以用 value in dict/set
 
-```
+```py
 s = {1, 2, 3}
 1 in s
 True
@@ -46,8 +46,8 @@ False
 ```
 
 **字典的增删改**
-```
-In [1]: d = {'name': 'Runsen', 'age': 20}^M
+```py
+In [1]: d = {'name': 'Runsen', 'age': 20}
    ...:
 
 In [2]: d['gender'] = 'male'
@@ -66,7 +66,7 @@ In [8]: d
 Out[8]: {'name': 'Runsen', 'age': 20, 'gender': 'male'}
 
 
-In [9]: s = {1, 2, 3}^M
+In [9]: s = {1, 2, 3}
    ...:
 
 In [10]: s.add(4)
@@ -82,7 +82,7 @@ Out[13]: {1, 2, 3}****
 
 **字典的升序和降序排序**
 
-~~~
+```py
 d = {'b': 1, 'a': 2, 'c': 10}
 d_sorted_by_key = sorted(d.items(), key=lambda x: x[0]) # 根据字典键的升序排序
 d_sorted_by_value = sorted(d.items(), key=lambda x: x[1]) # 根据字典值的升序排序
@@ -90,13 +90,13 @@ d_sorted_by_key
 [('a', 2), ('b', 1), ('c', 10)]
 d_sorted_by_value
 [('b', 1), ('a', 2), ('c', 10)]
-~~~
+```
 
 # 增删查找
 字典和集合是进行过性能高度优化的数据结构，特别是对于查找、添加和删除操作
 
 **列表的做法**
-```
+```py
 # list version
 def find_unique_price_using_list(products):
     unique_price_list = []
@@ -119,13 +119,14 @@ number of unique price is: 3
 ```
 
 **集合的做法**
-```
+```py
 # set version
 def find_unique_price_using_set(products):
     unique_price_set = set()
-    for _, price in products:
-        unique_price_set.add(price)
-    return len(unique_price_set)        
+    for _,price in products:
+        if price not in unique_price_set:
+            unique_price_set.add(price)
+    return len(unique_price_set)       
 
 products = [
     (143121312, 100), 
@@ -141,7 +142,7 @@ number of unique price is: 3
 
 比较运行的时间，也就是性能
 
-```
+```py
 import time
 id = [x for x in range(0, 100000)]
 price = [x for x in range(200000, 300000)]
@@ -169,7 +170,7 @@ time elapse using set: 0.008238077163696289
 
 对于字典，哈希表存储了哈希值，键和值这三个元素
 
-字典和集合都是无序的数据结构，其内部的哈希表存储结构，保证了查找，插入，删除操作的高效性。所以，字典和集合通常运用在对元素的查找，去重
+**字典和集合都是无序的数据结构**，其内部的哈希表存储结构，保证了查找，插入，删除操作的高效性。所以，字典和集合通常运用在对元素的查找，去重
 
 初始化字典的方式有两种方法，比较下哪一种更高效?
 
